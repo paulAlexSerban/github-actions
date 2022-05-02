@@ -17,5 +17,5 @@ jobs:
         run: cat ./package.json
       - name: Logging
         run: |
-          echo "${{contains(github.event.pull_request)}}"
+          echo "${{toJSON(github.event.pull_request)}}"
 
