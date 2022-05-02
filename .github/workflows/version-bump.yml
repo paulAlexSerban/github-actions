@@ -1,14 +1,11 @@
 name: Bump Version
 
-on:
-  push:
-    branches:
-      - develop
+on: pull_request
 
 jobs:
   patch-version:
     name: 'Bump Patch Version'
-    if: "startsWith(github.event.head_commit.message, '[PATCH]')"
+    if: "contains(github.event.ref, 'PATCH')"
     runs-on: ubuntu-latest
 
     steps:
@@ -18,3 +15,7 @@ jobs:
           ref: ${{ github.ref }}
       - name: 'cat package.json'
         run: cat ./package.json
+      - name: Logging
+        run: |
+          echo "${{contains(github.event.ref, 'PATCH')}}"
+
