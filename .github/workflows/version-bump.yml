@@ -12,9 +12,14 @@ jobs:
 
     steps:
       - name: 'Checkout source code'
-        uses: 'actions/checkout@v3'
+        uses: 'actions/checkout@v2'
         with:
           ref: ${{ github.ref }}
+          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+      - run: git config --global user.name 'paulAlexSerban'
+      - run: git config --global user.email 'paul.alex.serban@gmail.com'
+      - run: npm version patch -m "[PATCH] %s"
+      - run: git push
       - name: 'cat package.json'
         run: cat ./package.json
       - name: Logging
