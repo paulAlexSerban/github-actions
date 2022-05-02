@@ -1,13 +1,15 @@
-name: Bump Version on main
+name: Bump Version
 
 on:
   push:
     branches:
+      - develop
+      - 'release/*'
       - main
 
 jobs:
   bump-version:
-    name: 'Bump Version on Main'
+    name: 'Bump Version'
     runs-on: ubuntu-latest
 
     steps:
