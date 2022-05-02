@@ -14,12 +14,10 @@ jobs:
         uses: 'actions/checkout@v3'
         with:
           ref: ${{ github.ref }}
-      - name: 'Npm Version BUMP'
-        run: |
-          git config --global user.name 'paulAlexSerban'
-          git config --global user.email 'paul.alex.serban@gmail.com'
-          npm version patch -m "[PATCH] %s"
-          git push
+      - run: git config --global user.name 'paulAlexSerban'
+      - run: git config --global user.email 'paul.alex.serban@gmail.com'
+      - run: npm version patch -m "[PATCH] %s"
+      - run: git push
       - name: 'cat package.json'
         run: cat ./package.json
       - name: Logging
