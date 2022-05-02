@@ -22,10 +22,6 @@ jobs:
       - run: git push
       - name: 'cat package.json'
         run: cat ./package.json
-      - name: Logging
-        run: |
-          echo "bumped PATCH version"
-          echo "${{toJSON(github.event.pull_request)}}"
   
   minor-version:
     name: 'Bump Minor Version'
@@ -44,10 +40,6 @@ jobs:
       - run: git push
       - name: 'cat package.json'
         run: cat ./package.json
-      - name: Logging
-        run: |
-          echo "bumped MINOR version"
-          echo "${{toJSON(github.event.pull_request)}}"
 
   major-version:
     name: 'Bump Major Version'
@@ -60,9 +52,9 @@ jobs:
         with:
           ref: ${{ github.ref }}
           token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+      - run: git config --global user.name 'paulAlexSerban'
+      - run: git config --global user.email 'paul.alex.serban@gmail.com'
+      - run: npm version major -m "[MAJOR] bump to %s"
+      - run: git push
       - name: 'cat package.json'
         run: cat ./package.json
-      - name: Logging
-        run: |
-          echo "bumped MAJOR version"
-          echo "${{toJSON(github.event.pull_request)}}"
