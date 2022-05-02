@@ -8,7 +8,7 @@ on:
 jobs:
   patch-version:
     name: 'Bump Patch Version'
-    if: "startsWith(github.event.head_commit.message, '[PATCH]')"
+    # if: "startsWith(github.event.head_commit.message, '[PATCH]')"
     runs-on: ubuntu-latest
 
     steps:
@@ -18,3 +18,7 @@ jobs:
           ref: ${{ github.ref }}
       - name: 'cat package.json'
         run: cat ./package.json
+      - name: Logging
+        run: |
+          echo "${{toJSON(github.event)}}"
+
