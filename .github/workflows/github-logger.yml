@@ -8,4 +8,6 @@ jobs:
     steps:
       - name: Logging
         run: |
-          echo "${{(github.event.pull_request}}"
+          echo "${{ github.event.pull_request }}"
+          echo "${{ github.event.base_ref }}"
+          echo "${{ github.event.before }}"
