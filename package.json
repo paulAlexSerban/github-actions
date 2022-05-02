@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "/": "INSTALL",
-    "install:dependencies": "npm ci --prefix frontend/landing",
+    "install:dependencies": "npm ci --prefix frontend/landing && npm ci --prefix assets",
     "//": "  BUILD  //////////",
+    "build:all:dev":"npm run build:assets:dev && npm run build:landing:dev",
+    "build:assets:dev": "npm run build --prefix assets",
     "build:landing:dev": "npm run build --prefix frontend/landing"
   },
   "repository": {
