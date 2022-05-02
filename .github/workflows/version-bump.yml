@@ -17,5 +17,5 @@ jobs:
         run: cat ./package.json
       - name: Logging
         run: |
-          echo "${{toJSON(github.event.pull_request.head.ref)}}"
+          echo "${{contains(github.event.pull_request.head.ref, 'bugfix')}}"
 
