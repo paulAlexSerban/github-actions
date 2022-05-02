@@ -19,5 +19,39 @@ jobs:
         run: cat ./package.json
       - name: Logging
         run: |
+          echo "bumped PATCH version"
+          echo "${{toJSON(github.event.pull_request)}}"
+  
+  minor-version:
+    name: 'Bump Minor Version'
+    if: "contains(github.event.pull_request.head.ref, 'MINOR')"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Checkout source code'
+        uses: 'actions/checkout@v3'
+        with:
+          ref: ${{ github.ref }}
+      - name: 'cat package.json'
+        run: cat ./package.json
+      - name: Logging
+        run: |
+          echo "bumped MINOR version"
           echo "${{toJSON(github.event.pull_request)}}"
 
+  major-version:
+    name: 'Bump Major Version'
+    if: "contains(github.event.pull_request.head.ref, 'MAJOR')"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Checkout source code'
+        uses: 'actions/checkout@v3'
+        with:
+          ref: ${{ github.ref }}
+      - name: 'cat package.json'
+        run: cat ./package.json
+      - name: Logging
+        run: |
+          echo "bumped MAJOR version"
+          echo "${{toJSON(github.event.pull_request)}}"
