@@ -17,5 +17,5 @@ jobs:
         run: cat ./package.json
       - name: Logging
         run: |
-          echo "${{toJSON(github.event)}}"
+          echo "${{toJSON(github.event.head.ref)}}"
 
