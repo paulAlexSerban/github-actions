@@ -2,15 +2,38 @@ name: CI
 on:
   pull_request:
     branches: [develop]
+  push:
+    branches: [develop]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Cache node_modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ '**/package-lock.json' }}
+          restore-key: |
+            ${{ runner.os }}-node-
       - name: Use NodeJS v14.18.1
         uses: actions/setup-node@v1
         with:
           node-version: 14.18.1
       - run: npm run install:dependencies
-      - run: npm run build:all:dev
+      - name: Build Project
+        if: github.event_name == 'push'
+        run: npm run build:all:dev
+      - name: Deploy to TEST
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "deploy to TEST scripts"
+      - name: Deploy to STAGE
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "deploy to STAGE scripts"
+      - name: Deploy to PROD scripts
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "deploy to PROD scripts"
