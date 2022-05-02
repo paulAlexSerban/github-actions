@@ -1,7 +1,8 @@
 name: Bump Version
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
       - develop
       - 'release/*'
