@@ -24,6 +24,7 @@
     "core-js": "^3.21.1",
     "dart-sass": "^1.25.0",
     "del": "^6.0.0",
+    "eslint": "^8.14.0",
     "eslint-plugin-import": "^2.25.4",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
