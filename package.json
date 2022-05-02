@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "/": "INSTALL",
+    "install:dependencies": "npm ci --prefix frontend/landing",
+    "//": "  BUILD  //////////",
+    "build:landing:dev": "npm run build --prefix frontend/landing"
   },
   "repository": {
     "type": "git",
