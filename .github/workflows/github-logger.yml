@@ -8,4 +8,4 @@ jobs:
     steps:
       - name: Logging
         run: |
-          echo "${{contains(github.event.commits.*.message, 'PATCH')}}"
+          echo "${{contains(github.event.commits.*.message, '[PATCH]')}}"
