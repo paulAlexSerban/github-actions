@@ -28,7 +28,9 @@ jobs:
 
       - name: Build
         if: github.event_name == 'push'
-        run: npm run build:all:dev
+        run: |
+          npm run build:all:dev
+          npm run deploy
 
       - name: Upload /docs artifacts
         uses: actions/upload-artifact@v1
