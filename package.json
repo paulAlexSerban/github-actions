@@ -11,7 +11,7 @@
     "build:assets:dev": "npm run build --prefix assets",
     "build:landing:dev": "npm run build --prefix frontend/landing",
     "///":"DEPLOY",
-    "deploy":"rm -rfv docs && mkdir docs && cp -rfv frontend/landing/dist/* docs/"
+    "deploy":"rm -rfv docs && mkdir docs && cp -rfv frontend/*/dist/* docs/"
   },
   "repository": {
     "type": "git",
