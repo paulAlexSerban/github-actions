@@ -7,9 +7,13 @@
     "/": "INSTALL",
     "install:dependencies": "npm ci --prefix frontend/landing && npm ci --prefix assets",
     "//": "  BUILD  //////////",
-    "build:all:dev":"npm run build:assets:dev && npm run build:landing:dev",
+    "build:all:dev": "npm run build:assets:dev && npm run build:landing:dev",
     "build:assets:dev": "npm run build --prefix assets",
-    "build:landing:dev": "npm run build --prefix frontend/landing"
+    "build:landing:dev": "npm run build --prefix frontend/landing",
+    "///": "DEPLOY",
+    "deploy": "rm -rfv docs && mkdir docs && npm run deploy:frontend && npm run deploy:assets",
+    "deploy:frontend": "cp -rfv frontend/*/dist/* docs/",
+    "deploy:assets": "cp -rfv assets/dist/* docs/public/"
   },
   "repository": {
     "type": "git",
@@ -20,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/paulAlexSerban/github-actions/issues"
   },
-  "homepage": "https://github.com/paulAlexSerban/github-actions#readme"
+  "homepage": "https://github.com/paulAlexSerban/github-actions#readme",
+  "devDependencies": {
+    "semantic-release": "^19.0.2"
+  }
 }
