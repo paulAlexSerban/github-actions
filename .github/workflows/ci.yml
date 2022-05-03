@@ -1,4 +1,4 @@
-name: CI
+name: CI GitHub Pages
 on:
   pull_request:
     branches: [develop]
@@ -37,13 +37,9 @@ jobs:
           name: docs
           path: docs
 
-      - name: Deploy to GH Page
+      - name: Deploy to GitHub Pages
+        if: github.event_name == 'push'
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: gh-pages
           folder: docs
-
-      - name: Deploy to TEST
-        if: github.event_name == 'pull_request'
-        run: |
-          echo "deploy to TEST scripts"
