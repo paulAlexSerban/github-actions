@@ -17,6 +17,27 @@ The commit contains the following structural elements, to communicate intent to 
 - types other than `fix:` and `feat:` are allowed, for example @commitlint/config-conventional (based on the the Angular convention) recommends `build:`, `chore:`, `ci:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:`, and others.
 - footers other than `BREAKING CHANGE: <description>` may be provided and follow a convention similar to git trailer format.
 
+## Type
+
+Must be one of the following:
+
+- `build:` Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+- `ci:` Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+- `docs:` Documentation only changes
+- `feat:` A new feature
+- `fix:` A bug fix
+- `perf:` A code change that improves performance
+- `refactor:` A code change that neither fixes a bug nor adds a feature
+- `style:` Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+- `test:` Adding missing tests or correcting existing tests
+
+## Scope
+
+The scope should be the name of the npm package affected (as perceived by the person reading the changelog generated from commit messages.
+
+The following is the list of supported scopes:
+animations, common, compiler, compiler-cli, core, elements, forms, http, language-service, platform-browser, platform-browser-dynamic, platform-server, platform-webworker, platform-webworker-dynamic, router, service-worker, upgrade
+
 ## Examples
 
 > Commit message with ! to draw attention to breaking change
@@ -57,6 +78,7 @@ The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL 
 - `BREAKING-CHANGE` _MUST_ be synonymous with `BREAKING CHANGE`, when used as a token in a footer.
 
 ## Why Use Conventional Commits
+
 Automatically generating CHANGELOGs.
 Automatically determining a semantic version bump (based on the types of commits landed).
 Communicating the nature of changes to teammates, the public, and other stakeholders.
@@ -64,4 +86,6 @@ Triggering build and publish processes.
 Making it easier for people to contribute to your projects, by allowing them to explore a more structured commit history.
 
 ## References
+
 - https://www.conventionalcommits.org/en/v1.0.0/
+- https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines
