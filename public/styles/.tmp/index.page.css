@@ -1,0 +1,561 @@
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
+<link href="https://fonts.googleapis.com/css2?family=Mohave:wght@300&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+*/
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Mohave:wght@300&display=swap" rel="stylesheet">
+*/
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mohave:wght@300&display=swap" rel="stylesheet">
+*/
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+*/
+/*
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+*/
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/*
+Pointer
+- devices with mouse, trackpad, or other pointing device with high level of accuracy
+*/
+/*
+Touch
+- touch-based devices with limited accuracy
+*/
+/*
+Print
+- printer friendly version
+*/
+/*
+Pixel density
+- devices with low or high pixel densities
+*/
+/*
+Color depth
+- devices with limited or wide range of color reproduction
+*/
+/*
+Low contrast
+- devices with low or high contrast screens
+*/
+/*
+Monochrome
+- devices, uch as e-papers, with monochrome displays
+*/
+/*
+Fullscreen
+- fullscreen components or pages
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/* Orientation
+- description
+  - device orientation
+- media
+  - @media (orientation: landscape)
+  - @media (orientation: portrait)
+*/
+/* Aspect Ratio
+- description
+  - viewport aspect ratio
+- media
+  - @media (aspect-ratio: x/x)
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/* Examples
+.example__breakpoint-between {
+  @include breakpoint-between(desktop, desktop-xl) {
+    color: red;
+  }
+}
+*/
+/*
+.example {
+  @include breakpoint-touch(tablet-large) {
+    color:red;
+  }
+}
+*/
+/**
+* Make all elements from DOM inherit from parent box-sizing
+* Since `*` has a specificity of 0, it does not override the `html` value making all elements inheriting
+* from the root box-sizing value
+
+* 1. Remove browser margin and padding
+* 2. Change the box model so border and paddings are not added to the total width of the box container
+* 3. Setup the box model on the root level
+*/
+/* critical:start */
+*,
+*::before,
+*::after {
+  margin: 0;
+  /* 1 */
+  padding: 0;
+  /* 1 */
+  box-sizing: border-box;
+  /* 2 */
+}
+
+html {
+  box-sizing: border-box;
+  /* 3 */
+}
+
+/* critical:end */
+/* critical:start */
+html {
+  font-size: 1rem;
+}
+
+/* critical:start */
+/**
+* 1. Correct the line height in all browsers.
+* 2. Prevent adjustments of font size after orientation changes in iOS.
+*/
+/* critical:start */
+html {
+  line-height: 1.15;
+  /* 1 */
+}
+
+/* critical:end */
+/* critical:start */
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+}
+
+/* critical:end */
+/* critical:start */
+::-moz-selection {
+  background-color: var(--color-text);
+  color: var(--color-container-background);
+}
+::selection {
+  background-color: var(--color-text);
+  color: var(--color-container-background);
+}
+
+/* critical:end */
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
+<link href="https://fonts.googleapis.com/css2?family=Mohave:wght@300&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+*/
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Mohave:wght@300&display=swap" rel="stylesheet">
+*/
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mohave:wght@300&display=swap" rel="stylesheet">
+*/
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+*/
+/*
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+*/
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/*
+Pointer
+- devices with mouse, trackpad, or other pointing device with high level of accuracy
+*/
+/*
+Touch
+- touch-based devices with limited accuracy
+*/
+/*
+Print
+- printer friendly version
+*/
+/*
+Pixel density
+- devices with low or high pixel densities
+*/
+/*
+Color depth
+- devices with limited or wide range of color reproduction
+*/
+/*
+Low contrast
+- devices with low or high contrast screens
+*/
+/*
+Monochrome
+- devices, uch as e-papers, with monochrome displays
+*/
+/*
+Fullscreen
+- fullscreen components or pages
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/* Orientation
+- description
+  - device orientation
+- media
+  - @media (orientation: landscape)
+  - @media (orientation: portrait)
+*/
+/* Aspect Ratio
+- description
+  - viewport aspect ratio
+- media
+  - @media (aspect-ratio: x/x)
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/* Examples
+.example__breakpoint-between {
+  @include breakpoint-between(desktop, desktop-xl) {
+    color: red;
+  }
+}
+*/
+/*
+.example {
+  @include breakpoint-touch(tablet-large) {
+    color:red;
+  }
+}
+*/
+/* critical:start */
+body {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-page-background);
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+}
+body > * {
+  width: 100%;
+}
+
+/* critical:end */
+/* stylelint-disable selector-no-qualifying-type */
+/* critical:start */
+h2 {
+  font-family: var(--text-regular);
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  font-weight: 300;
+  text-align: left;
+  letter-spacing: -0.03125rem;
+  color: var(--color-text);
+}
+
+label {
+  color: var(--color-text);
+  font-family: var(--text-regular);
+  font-size: 1rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+  text-align: left;
+  letter-spacing: 0.03125rem;
+}
+
+p, span {
+  color: var(--color-text);
+  font-family: var(--text-regular);
+  font-size: 1rem;
+  line-height: 1.125rem;
+  font-weight: normal;
+  text-align: left;
+  letter-spacing: 0.03125rem;
+}
+
+/* critical:end */
+/* stylelint-enable selector-no-qualifying-type */
+.u-heading-form {
+  text-align: center;
+  /* font override */
+}
+
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
+<link href="https://fonts.googleapis.com/css2?family=Mohave:wght@300&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+*/
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Mohave:wght@300&display=swap" rel="stylesheet">
+*/
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mohave:wght@300&display=swap" rel="stylesheet">
+*/
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+*/
+/*
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+*/
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/*
+Pointer
+- devices with mouse, trackpad, or other pointing device with high level of accuracy
+*/
+/*
+Touch
+- touch-based devices with limited accuracy
+*/
+/*
+Print
+- printer friendly version
+*/
+/*
+Pixel density
+- devices with low or high pixel densities
+*/
+/*
+Color depth
+- devices with limited or wide range of color reproduction
+*/
+/*
+Low contrast
+- devices with low or high contrast screens
+*/
+/*
+Monochrome
+- devices, uch as e-papers, with monochrome displays
+*/
+/*
+Fullscreen
+- fullscreen components or pages
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/* Orientation
+- description
+  - device orientation
+- media
+  - @media (orientation: landscape)
+  - @media (orientation: portrait)
+*/
+/* Aspect Ratio
+- description
+  - viewport aspect ratio
+- media
+  - @media (aspect-ratio: x/x)
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/*
+Inspired by:
+https://www.sitepoint.com/better-solution-managing-z-index-sass/
+https://webdevstudios.com/2015/09/22/using-sass-to-manage-layers-z-index/
+https://medium.com/ccoutzoukis/better-z-index-management-with-sass-a8095ba3a2bc/
+*/
+/* Examples
+.example__breakpoint-between {
+  @include breakpoint-between(desktop, desktop-xl) {
+    color: red;
+  }
+}
+*/
+/*
+.example {
+  @include breakpoint-touch(tablet-large) {
+    color:red;
+  }
+}
+*/
+/* critical:start */
+:root {
+  --color-text: #1f1f1f;
+  --color-page-background: #fff;
+  --color-button-label: #fff;
+  --color-select-background: #fff;
+  --color-container-background: #eee;
+  --color-link: #0d3b66;
+  --color-button-primary: #3498db;
+  --shadow-container: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.3);
+  --text-regular: Open Sans, sans-serif;
+  /* regular font family */
+  --text-code: Courier Prime, monospace;
+  /* code family */
+}
+
+/* critical:end */
+.o-blank__base {
+  color: var(--color-text);
+  font-family: var(--text-regular);
+  font-size: 1rem;
+  line-height: 1.125rem;
+  font-weight: normal;
+  text-align: left;
+  letter-spacing: 0.03125rem;
+}
+
+.o-blank__base:nth-of-type(2) {
+  margin-right: 1rem;
+}
+.o-blank__base:nth-last-of-type(2) {
+  margin-left: 1rem;
+}
+
+.o-blank__base:disabled {
+  color: #ff0000;
+}
+
+.o-blank__base:hover {
+  cursor: pointer;
+  color: red;
+}
