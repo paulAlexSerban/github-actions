@@ -17,25 +17,26 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+
       - name: Use NodeJS v14.18.1
         uses: actions/setup-node@v1
         with:
           node-version: 14.18.1
+
       - name: Install
-        if: github.event_name == 'push'
         run: npm run install:dependencies
+
       - name: Build
         if: github.event_name == 'push'
         run: npm run build:all:dev
+
+      - name: Upload /docs artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: docs
+          path: docs
+
       - name: Deploy to TEST
         if: github.event_name == 'pull_request'
         run: |
           echo "deploy to TEST scripts"
-      - name: Deploy to STAGE
-        if: github.event_name == 'pull_request'
-        run: |
-          echo "deploy to STAGE scripts"
-      - name: Deploy to PROD scripts
-        if: github.event_name == 'pull_request'
-        run: |
-          echo "deploy to PROD scripts"
