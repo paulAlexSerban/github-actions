@@ -13,7 +13,8 @@
     "///": "DEPLOY",
     "deploy": "rm -rfv docs && mkdir docs && npm run deploy:frontend && npm run deploy:assets",
     "deploy:frontend": "cp -rfv frontend/*/dist/* docs/",
-    "deploy:assets": "cp -rfv assets/dist/* docs/public/"
+    "deploy:assets": "cp -rfv assets/dist/* docs/public/",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,20 @@
   },
   "homepage": "https://github.com/paulAlexSerban/github-actions#readme",
   "devDependencies": {
+    "@commitlint/cli": "^16.2.4",
+    "@commitlint/config-conventional": "^16.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^7.0.4",
     "semantic-release": "^19.0.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
+    }
   }
 }
