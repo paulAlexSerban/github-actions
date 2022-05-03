@@ -21,8 +21,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14.18.1
-      - run: npm run install:dependencies
-      - name: Build Project
+      - name: Install
+        if: github.event_name == 'push'
+        run: npm run install:dependencies
+      - name: Build
         if: github.event_name == 'push'
         run: npm run build:all:dev
       - name: Deploy to TEST
