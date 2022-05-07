@@ -1,9 +1,7 @@
-name: CI GitHub Pages
+name: Release
 on:
-  pull_request:
-    branches: [develop, main]
   push:
-    branches: [develop, main]
+    branches: [main]
 
 jobs:
   build:
@@ -24,50 +22,29 @@ jobs:
           node-version: 14.18.1
 
       - name: Install
-        run: |
-          npm ci --omit=dev --ignore-scripts
-          npm run install:dependencies
+        run: npm run install:dependencies:ci
 
       - name: Build
         run: |
-          npm run build:all:dev
+          npm run build:all:prod
           npm run deploy
 
       - name: Upload /docs artifacts
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-artifact@v1
         with:
           name: docs
           path: docs
 
       - name: Zip Artifacts
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           zip -r build.zip ./docs
 
       - name: Create Release
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Deploy TEST
-        if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
-        run: |
-          echo "deploy to TEST scripts"
-      
-      - name: Deploy to STAGE
-        if: github.event_name == 'push' && github.ref == 'refs/heads/release'
-        run: |
-          echo "deploy to STAGE scripts"
-
-      - name: Deploy to PROD
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          echo "deploy to PROD scripts"
-
       - name: Deploy to GitHub Pages
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: gh-pages
