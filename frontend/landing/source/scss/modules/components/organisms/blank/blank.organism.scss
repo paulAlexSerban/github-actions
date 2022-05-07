@@ -5,4 +5,8 @@ $block: "#{$type}-blank";
   @include e("base") {
     @include font($body);
   }
+
+  @include e("title") {
+    text-align: center;
+  }
 }
