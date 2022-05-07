@@ -5,7 +5,7 @@ $block: "#{$type}-blank";
   @include e("base") {
     &:hover {
       cursor: pointer;
-      color: red;
+      color: coral;
     }
   }
 }
