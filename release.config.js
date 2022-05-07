@@ -5,12 +5,23 @@ module.exports = {
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     [
-      "@semantic-release/github",
+      "@semantic-release/npm",
       {
-        assets: [
-          {path: "build.zip", label: "Build"}
-        ]
-      }
-    ]
+        npmPublish: false,
+      },
+    ],
+    [
+      "@semantic-release/github",
+      { assets: [{ path: "build.zip", label: "Build" }] },
+    ],
+    ["@semantic-release/changelog", { changelogFile: "wiki/CHANGELOG.md" }],
+    [
+      "@semantic-release/git",
+      {
+        assets: ["wiki/CHANGELOG.md", "docs/**", "package.json"],
+        message:
+          "chore(release): version ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
+      },
+    ],
   ],
 };

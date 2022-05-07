@@ -6,7 +6,8 @@
   "scripts": {
     "clean": "gulp clean --require @babel/register --gulpfile build",
     "build": "gulp build --require @babel/register --gulpfile build",
-    "watch": "gulp watch --require @babel/register --gulpfile build"
+    "watch": "gulp watch --require @babel/register --gulpfile build",
+    "lint": "gulp lint --require @babel/register --gulpfile build"
   },
   "author": "Paul Serban ",
   "license": "MIT",
